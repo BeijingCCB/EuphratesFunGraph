@@ -167,11 +167,11 @@ for (i in 1:1000) {
   saltnew <- saltnew[m,]
   
   LR_plasticper <- apply(hyhsnp,1,get_lr,control=cknew,stress=saltnew)
-  
+  LR_plasticper2 <- matrix(NA,ncol=length(LR_plasticper),nrow=2)
   for (i in 1:length(LR_plasticper)) {
-    LR_plasticper[1,i] <- LR_plasticper[[i]][[1]]
+    LR_plasticper2[1,i] <- LR_plasticper[[i]][[1]]
   }
-  lr[i] <- max(LR_plasticper[1,])
+  lr[i] <- max(LR_plasticper2[1,])
   
 }
 Threshold_value <- sort(lr,decreasing = T)[50]
